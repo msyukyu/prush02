@@ -6,7 +6,7 @@
 /*   By: dabeloos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/25 17:13:49 by dabeloos          #+#    #+#             */
-/*   Updated: 2018/08/25 18:19:18 by dabeloos         ###   ########.fr       */
+/*   Updated: 2018/08/25 19:09:06 by dabeloos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void			ft_putchar(char c);
 void			ft_putstr(char *str);
 int				ft_strcmp(char *s1, char *s2);
 int				ft_strlen(char *str);
-void			ft_putnbr(char *str);
+void			ft_putnbr(int nb);
 char			*rush00(int x, int y, char *str);
 char			*rush01(int x, int y, char *str);
 char			*rush02(int x, int y, char *str);

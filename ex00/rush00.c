@@ -6,11 +6,11 @@
 /*   By: dabeloos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/11 09:20:34 by dabeloos          #+#    #+#             */
-/*   Updated: 2018/08/25 17:48:21 by raouiche         ###   ########.fr       */
+/*   Updated: 2018/08/25 19:23:43 by dabeloos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*write_line(char *str, int l, int x, int y)
+char	*write_line00(char *str, int l, int x, int y)
 {
 	int c;
 
@@ -41,11 +41,12 @@ char	*rush00(int x, int y, char *str)
 	i = 0;
 	while (l < y)
 	{
-		str = write_line(str + i, l, x, y);
+		str = write_line00(str + i, l, x, y);
 		i += x;
 		str[i] = '\n';
 		l++;
 		i++;
 	}
+	str[i] = '\0';
 	return (str);
 }
