@@ -6,7 +6,7 @@
 /*   By: dabeloos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/25 16:41:06 by dabeloos          #+#    #+#             */
-/*   Updated: 2018/08/25 19:22:34 by dabeloos         ###   ########.fr       */
+/*   Updated: 2018/08/25 20:16:24 by dabeloos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,6 @@ void	ft_select_rush(int x, int y, char *input)
 	str = rush04(x, y, str);
 	if (ft_strcmp(str, input) == 0)
 		ft_solution("rush-04");
-	free(str);
 }
 
 char	*ft_appendchar(char *str, char c)
@@ -86,14 +85,15 @@ t_input	ft_read_input(void)
 	int		x;
 	int		y;
 	char	*input;
-	t_input	sized_input;	
+	t_input	sized_input;
 
 	input = malloc(sizeof(char));
 	input[0] = '\0';
 	x = 0;
 	y = 0;
-	while (read(0, &c, 1) != 0)
+	while (read(0, &c, 1) > 0)
 	{
+		ft_putchar(c);
 		input = ft_appendchar(input, c);
 		if (c == '\n')
 			y++;
@@ -102,6 +102,7 @@ t_input	ft_read_input(void)
 	}
 	sized_input.x = x;
 	sized_input.y = y;
+	sized_input.input = malloc(sizeof(char) * (ft_strlen(input) + 1));
 	sized_input.input = input;
 	return (sized_input);
 }
