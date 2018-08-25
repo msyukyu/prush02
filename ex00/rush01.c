@@ -6,7 +6,7 @@
 /*   By: dabeloos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/11 09:20:34 by dabeloos          #+#    #+#             */
-/*   Updated: 2018/08/25 17:01:24 by gquintin         ###   ########.fr       */
+/*   Updated: 2018/08/25 17:46:31 by raouiche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ char	*write_line(char *str, int l, int x, int y)
 	return (str);
 }
 
-char	*rush(int x, int y, char *str)
+char	*rush01(int x, int y, char *str)
 {
 	int	l;
 	int i;
@@ -44,8 +44,8 @@ char	*rush(int x, int y, char *str)
 		str = write_line(str + i, l, x, y);
 		i += x;
 		str[i] = '\n';
-		i++;
 		l++;
+		i++;
 	}
 	return (str);
 }
