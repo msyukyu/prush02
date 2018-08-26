@@ -43,17 +43,17 @@ int		ft_select_rush(int x, int y, char *input, int var[3])
 		ft_putstr(" || ");
 	if (var[2] && var[0]++)
 		ft_print_rush("[rush-01]", x, y);
-	i = ft_test_rush(x, y, input, &rush02);
+	var[1] = ft_test_rush(x, y, input, &rush02);
 	if (var[1] && var[2])
 		ft_putstr(" || ");
 	if (var[1] && var[0]++)
 		ft_print_rush("[rush-02]", x, y);
-	j = ft_test_rush(x, y, input, &rush03);
+	var[2] = ft_test_rush(x, y, input, &rush03);
 	if (var[1] && var[2])
 		ft_putstr(" || ");
 	if (var[2] && var[0]++)
 		ft_print_rush("[rush-03]", x, y);
-	i = ft_test_rush(x, y, input, &rush04);
+	var[1] = ft_test_rush(x, y, input, &rush04);
 	if (var[1] && var[2])
 		ft_putstr(" || ");
 	if (var[1] && var[0]++)

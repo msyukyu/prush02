@@ -42,6 +42,7 @@ char	*rush02(int x, int y, char *str)
 	while (l < y)
 	{
 		str = write_line02(str + i, l, x, y);
+		str -= i;
 		i += x;
 		str[i] = '\n';
 		l++;

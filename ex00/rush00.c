@@ -10,11 +10,29 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+char	*writeline00(char *str, int l, int x, int y)
+{
+	int c;
+
+	c = 0;
+	while (c < x)
+	{
+		if ((c == 0 || c == x - 1) && (l == 0 || l == y - 1))
+			str[c] = 'o';
+		else if (l == 0 || l == y - 1)
+			str[c] = '-';
+		else if (c == 0 || c == x - 1)
+			str[c] = '|';
+		else
+			str[c] = ' ';
+	}
+	return (str);
+}
+
 char	*rush00(int x, int y, char *str)
 {
 	int	l;
-	int i;
-	int c;
+	int	i;
 
 	if (x <= 0 || y <= 0)
 		return ((void*)0);
@@ -22,20 +40,9 @@ char	*rush00(int x, int y, char *str)
 	i = 0;
 	while (l < y)
 	{
-		c = 0;
-		while (c < x)
-		{
-			if ((c == 0 || c == x - 1) && (l == 0 || l == y - 1))
-				str[i] = 'o';
-			else if (l == 0 || l == y - 1)
-				str[i] = '-';
-			else if (c == 0 || c == x - 1)
-				str[i] = '|';
-			else
-				str[i] = ' ';
-			c++;
-			i++;
-		}
+		str = writeline00(str + i, l, x, y);
+		str -= i;
+		i += x;
 		str[i] = '\n';
 		l++;
 		i++;
