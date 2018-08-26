@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*writeline00(char *str, int l, int x, int y)
+char	*write_line00(char *str, int l, int x, int y)
 {
 	int c;
 
@@ -25,6 +25,7 @@ char	*writeline00(char *str, int l, int x, int y)
 			str[c] = '|';
 		else
 			str[c] = ' ';
+		c++;
 	}
 	return (str);
 }
@@ -40,7 +41,7 @@ char	*rush00(int x, int y, char *str)
 	i = 0;
 	while (l < y)
 	{
-		str = writeline00(str + i, l, x, y);
+		str = write_line00(str + i, l, x, y);
 		str -= i;
 		i += x;
 		str[i] = '\n';

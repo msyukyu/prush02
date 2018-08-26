@@ -114,5 +114,6 @@ int		main(void)
 	input = ft_read_input();
 	var[0] = 0;
 	if (ft_select_rush(input.x, input.y, input.input, var) == 0)
+		ft_putstr("FAKE RUSH");
 	return (0);
 }
