@@ -6,7 +6,7 @@
 /*   By: dabeloos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/25 16:41:06 by dabeloos          #+#    #+#             */
-/*   Updated: 2018/08/26 10:38:22 by dabeloos         ###   ########.fr       */
+/*   Updated: 2018/08/26 10:56:41 by dabeloos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,22 +104,8 @@ t_input	ft_read_input(void)
 			x++;
 	}
 	sized_input.x = x;
-	sized_input.y = y;
+	sized_input.y = (x == 0) ? 0 : y;
 	sized_input.input = malloc(sizeof(char) * (ft_strlen(input) + 1));
 	sized_input.input = input;
 	return (sized_input);
-}
-
-int		main(void)
-{
-	t_input	input;
-	int	var[3];
-
-	input = ft_read_input();
-	var[0] = 0;
-	if (ft_select_rush(input.x, input.y, input.input, var) == 0)
-		ft_putstr("FAKE RUSH\n");
-	else
-		ft_putchar('\n');
-	return (0);
 }
