@@ -6,7 +6,7 @@
 /*   By: dabeloos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/25 16:41:06 by dabeloos          #+#    #+#             */
-/*   Updated: 2018/08/25 22:58:37 by dabeloos         ###   ########.fr       */
+/*   Updated: 2018/08/26 10:38:22 by dabeloos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,12 @@ int		ft_test_rush(int x, int y, char *input, char *(*f)(int, int, char*))
 
 	str = malloc(((x + 1) * y + 1) * sizeof(char));
 	str = f(x, y, str);
-	if (ft_strcmp(str, input) == 0)
+	if (str == (void*)0)
+	{
+		if (input[0] == '\n')
+			return (1);
+	}
+	else if (ft_strcmp(str, input) == 0)
 		return (1);
 	return (0);
 }
@@ -36,27 +41,27 @@ void	ft_print_rush(char *str, int x, int y)
 int		ft_select_rush(int x, int y, char *input, int var[3])
 {
 	var[1] = ft_test_rush(x, y, input, &rush00);
-	if (var[1] && var[0]++)
+	if (var[1] && ++var[0])
 		ft_print_rush("[rush-00]", x, y);
 	var[2] = ft_test_rush(x, y, input, &rush01);
 	if (var[1] && var[2])
 		ft_putstr(" || ");
-	if (var[2] && var[0]++)
+	if (var[2] && ++var[0])
 		ft_print_rush("[rush-01]", x, y);
 	var[1] = ft_test_rush(x, y, input, &rush02);
 	if (var[1] && var[2])
 		ft_putstr(" || ");
-	if (var[1] && var[0]++)
+	if (var[1] && ++var[0])
 		ft_print_rush("[rush-02]", x, y);
 	var[2] = ft_test_rush(x, y, input, &rush03);
 	if (var[1] && var[2])
 		ft_putstr(" || ");
-	if (var[2] && var[0]++)
+	if (var[2] && ++var[0])
 		ft_print_rush("[rush-03]", x, y);
 	var[1] = ft_test_rush(x, y, input, &rush04);
 	if (var[1] && var[2])
 		ft_putstr(" || ");
-	if (var[1] && var[0]++)
+	if (var[1] && ++var[0])
 		ft_print_rush("[rush-04]", x, y);
 	return (var[0]);
 }
@@ -92,7 +97,6 @@ t_input	ft_read_input(void)
 	y = 0;
 	while (read(0, &c, 1) > 0)
 	{
-		ft_putchar(c);
 		input = ft_appendchar(input, c);
 		if (c == '\n')
 			y++;
@@ -114,6 +118,8 @@ int		main(void)
 	input = ft_read_input();
 	var[0] = 0;
 	if (ft_select_rush(input.x, input.y, input.input, var) == 0)
-		ft_putstr("FAKE RUSH");
+		ft_putstr("FAKE RUSH\n");
+	else
+		ft_putchar('\n');
 	return (0);
 }
